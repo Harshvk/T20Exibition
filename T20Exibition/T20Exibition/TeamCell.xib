@@ -46,9 +46,6 @@
                         <state key="selected" title="♥">
                             <color key="titleColor" red="1" green="0.0198914904" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </state>
-                        <connections>
-                            <action selector="addToFavouriteButtonAction:" destination="gTV-IL-0wX" eventType="touchUpInside" id="mr8-Ob-jh9"/>
-                        </connections>
                     </button>
                 </subviews>
             </view>

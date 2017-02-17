@@ -9,20 +9,28 @@
 import UIKit
 
 class LeagueCell: UITableViewCell {
-
+ 
     @IBOutlet weak var leagueNameLabel: UILabel!
     
     @IBOutlet weak var leagueTeamCollection: UICollectionView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        
 
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
-        // Configure the view for the selected state
+    }
+    
+    func configureCell(_ data: DataModel)
+    {
+        leagueNameLabel.text = data.name
+//        leagueTeamCollection
+        
     }
     
 }

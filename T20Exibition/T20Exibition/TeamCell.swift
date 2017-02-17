@@ -21,9 +21,5 @@ class TeamCell: UICollectionViewCell {
     override func prepareForReuse() {
         
     }
-    @IBAction func addToFavouriteButtonAction(_ sender: UIButton) {
-        
-        addToFavouriteButtonOutlet.isSelected = !addToFavouriteButtonOutlet.isSelected
-        
-    }
+
 }

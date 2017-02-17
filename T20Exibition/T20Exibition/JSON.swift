@@ -4,103 +4,103 @@ class JSON{
         [
             [
         
-                "country" : "India",
+                "Name" : "India",
     
-                "Trophies" : [
+                "Value" : [
                                     [
-                                    "Trophy Name" : "Ranji Trophy",
+                                    "Name" : "Ranji Trophy",
                 
-                                    "Teams" : [
+                                    "Value" : [
                                                     ["Name" : "Andhra",
-                                                     "Image" : ""
+                                                     "Value" : ""
                                                     ],
                                                     
                                                     ["Name" : "Assam",
-                                                     "Image" : ""
+                                                     "Value" : ""
                                                     ],
                                                     
                                                     ["Name" : "Baroda",
-                                                     "Image" : ""
+                                                     "Value" : ""
                                                     ],
                                                     
                                                     ["Name" : "Bengal",
-                                                     "Image" : ""
+                                                     "Value" : ""
                                                     ],
                                                     
                                                     ["Name" : "Chhattisgarh",
-                                                     "Image" : ""
+                                                     "Value" : ""
                                                     ],
                                                     
                                                     ["Name" : "Delhi",
-                                                    "Image" : ""
+                                                    "Value" : ""
                                                     ],
                                                     
                                                     ["Name" : "Goa",
-                                                     "Image" : ""
+                                                     "Value" : ""
                                                     ],
                                                     
                                                     ["Name" : "Gujarat",
-                                                     "Image" : ""
+                                                     "Value" : ""
                                                     ],
                                                     
                                                     ["Name" : "Haryana",
-                                                     "Image" : ""
+                                                     "Value" : ""
                                                     ],
                                                     
                                                     ["Name" : "Himachal Pradesh",
-                                                     "Image" : ""
+                                                     "Value" : ""
                                                     ],
                                                     
                                                     ["Name" : "Hyderabad",
-                                                     "Image" : ""
+                                                     "Value" : ""
                                                     ],
                                                     
                                                     ["Name" : "Jammu and Kashmir",
-                                                     "Image" : ""
+                                                     "Value" : ""
                                                     ],
                                                     
                                                     ["Name" : "Maharashtra",
-                                                     "Image" : ""
+                                                     "Value" : ""
                                                     ],
                                                     
                                                     ["Name" : "Mumbai",
-                                                     "Image" : ""
+                                                     "Value" : ""
                                                     ],
                                                     
                                                     ["Name" : "Odisha",
-                                                     "Image" : ""
+                                                     "Value" : ""
                                                     ],
                                                     
                                                     ["Name" : "Punjab",
-                                                     "Image" : ""
+                                                     "Value" : ""
                                                     ],
                                                     
                                                     ["Name" : "Railways",
-                                                     "Image" : ""
+                                                     "Value" : ""
                                                     ],
                                                     
                                                     ["Name" : "Rajasthan",
-                                                     "Image" : ""
+                                                     "Value" : ""
                                                     ],
                                                     
                                                     ["Name" : "Saurashtra",
-                                                     "Image" : ""
+                                                     "Value" : ""
                                                     ],
                                                     
                                                     ["Name" : "Services",
-                                                     "Image" : ""
+                                                     "Value" : ""
                                                     ],
                                                     
                                                     ["Name" : "Tripura",
-                                                     "Image" : ""
+                                                     "Value" : ""
                                                     ],
                                                     
                                                     ["Name" : "Vidarbha",
-                                                     "Image" : ""
+                                                     "Value" : ""
                                                     ],
                                                     
                                                     ["Name" : "Uttar Pradesh",
-                                                     "Image" : ""
+                                                     "Value" : ""
                                                     ]
                                              
                                             
@@ -110,34 +110,34 @@ class JSON{
                 
                                
                                     [
-                                    "Trophy Name" : "IPL",
+                                    "Name" : "IPL",
                                 
-                                    "Teams" : [
+                                    "Value" : [
                                         
                                                     ["Name" : "KKR",
-                                                     "Image" : ""
+                                                     "Value" : ""
                                                     ],
                                                     
                                                     ["Name" : "MI",
-                                                     "Image" : ""
+                                                     "Value" : ""
                                                     ],
                                                     ["Name" : "RPS",
-                                                     "Image" : ""
+                                                     "Value" : ""
                                                     ],
                                                     ["Name" : "GL",
-                                                     "Image" : ""
+                                                     "Value" : ""
                                                     ],
                                                     ["Name" : "SRH",
-                                                     "Image" : ""
+                                                     "Value" : ""
                                                     ],
                                                     ["Name" : "KXIP",
-                                                     "Image" : ""
+                                                     "Value" : ""
                                                     ],
                                                     ["Name" : "RR",
-                                                     "Image" : ""
+                                                     "Value" : ""
                                                     ],
                                                     ["Name" : "RCB",
-                                                     "Image" : ""
+                                                     "Value" : ""
                                                     ]
 
                                                 ]
@@ -147,75 +147,75 @@ class JSON{
                 ],
 
                 [
-                    "country" : "Australia",
+                    "Name" : "Australia",
                 
-                    "Trophies" :
+                    "Value" :
                 
                             [
                                     [
-                                        "Trophy Name" : "Big Bash League",
+                                        "Name" : "Big Bash League",
                     
-                                        "Teams" : [
+                                        "Value" : [
                                             
                                                     [
                                                         "Name" : "Adelaide Strikers",
-                                                        "Image" : ""
+                                                        "Value" : ""
                                                     ],
                                                     
                                                     [
                                                         "Name" : "Brisbane Heat",
-                                                        "Image" : ""
+                                                        "Value" : ""
                                                     ],
                                                     [
                                                         "Name" : "Hobart Hurricanes",
-                                                        "Image" : ""
+                                                        "Value" : ""
                                                     ],
                                                     [
                                                         "Name" : "Melbourne Renegades",
-                                                        "Image" : ""
+                                                        "Value" : ""
                                                     ],
                                                     [
                                                         "Name" : "Melbourne Stars",
-                                                        "Image" : ""
+                                                        "Value" : ""
                                                     ],
                                                     [
                                                         "Name" : "Perth Scorchers",
-                                                        "Image" : ""
+                                                        "Value" : ""
                                                     ],
                                                     [
                                                         "Name" : "Sydney Thunder",
-                                                        "Image" : ""
+                                                        "Value" : ""
                                                     ],
                                                     [
                                                         "Name" : "Sydney Sixers",
-                                                        "Image" : ""
+                                                        "Value" : ""
                                                     ],
                                                     
                                                 ]
                                     ],
                                     [
-                                        "Trophy Name" : "SHEFFIELD SHIELD",
+                                        "Name" : "SHEFFIELD SHIELD",
                                         
-                                        "Teams" : [
+                                        "Value" : [
                                             
                                             
                                                         ["Name" : "New South Wales",
-                                                         "Image" : ""
+                                                         "Value" : ""
                                                         ],
                                                         ["Name" : "Victoria",
-                                                         "Image" : ""
+                                                         "Value" : ""
                                                         ],
                                                         ["Name" : "South Australia",
-                                                         "Image" : ""
+                                                         "Value" : ""
                                                         ],
                                                         ["Name" : "Queensland",
-                                                         "Image" : ""
+                                                         "Value" : ""
                                                         ],
                                                         ["Name" : "Western Australia",
-                                                         "Image" : ""
+                                                         "Value" : ""
                                                         ],
                                                         ["Name" : "Tasmania",
-                                                         "Image" : ""
+                                                         "Value" : ""
                                                         ],
                     
                                 

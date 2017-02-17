@@ -44,12 +44,30 @@
             </objects>
             <point key="canvasLocation" x="1037.5999999999999" y="126.38680659670166"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="y2P-SX-Sgb">
+            <objects>
+                <viewController id="Tf0-e8-OwW" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="bAF-2c-ogw"/>
+                        <viewControllerLayoutGuide type="bottom" id="5vg-zI-pFW"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="FY9-IP-VIX">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Rzj-lj-jzA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1863" y="128"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="orO-zW-DPM">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Xyr-3u-8f6" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="KV4-mr-V7x">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="KV4-mr-V7x">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
