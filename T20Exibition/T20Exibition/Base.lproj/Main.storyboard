@@ -44,10 +44,10 @@
             </objects>
             <point key="canvasLocation" x="1037.5999999999999" y="126.38680659670166"/>
         </scene>
-        <!--View Controller-->
+        <!--Image PreviewVC-->
         <scene sceneID="y2P-SX-Sgb">
             <objects>
-                <viewController id="Tf0-e8-OwW" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ImagePreviewVC" id="Tf0-e8-OwW" customClass="ImagePreviewVC" customModule="T20Exibition" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="bAF-2c-ogw"/>
                         <viewControllerLayoutGuide type="bottom" id="5vg-zI-pFW"/>
@@ -55,12 +55,40 @@
                     <view key="view" contentMode="scaleToFill" id="FY9-IP-VIX">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="125-d6-Bsx">
+                                <rect key="frame" x="0.0" y="20" width="375" height="30"/>
+                                <color key="backgroundColor" red="0.90425685509999998" green="0.99945143879999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="WF6-iU-Wef"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="35S-5u-ekc">
+                                <rect key="frame" x="0.0" y="50" width="375" height="617"/>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="125-d6-Bsx" firstAttribute="top" secondItem="bAF-2c-ogw" secondAttribute="bottom" id="3VK-CH-8GN"/>
+                            <constraint firstItem="5vg-zI-pFW" firstAttribute="top" secondItem="35S-5u-ekc" secondAttribute="bottom" id="7xS-pd-WkW"/>
+                            <constraint firstItem="35S-5u-ekc" firstAttribute="leading" secondItem="FY9-IP-VIX" secondAttribute="leading" id="BoK-qV-iF0"/>
+                            <constraint firstItem="125-d6-Bsx" firstAttribute="leading" secondItem="FY9-IP-VIX" secondAttribute="leading" id="Rsv-Ae-V9c"/>
+                            <constraint firstAttribute="trailing" secondItem="35S-5u-ekc" secondAttribute="trailing" id="kcg-pJ-l6E"/>
+                            <constraint firstAttribute="trailing" secondItem="125-d6-Bsx" secondAttribute="trailing" id="r89-2R-QCh"/>
+                            <constraint firstItem="35S-5u-ekc" firstAttribute="top" secondItem="125-d6-Bsx" secondAttribute="bottom" id="ySs-iF-gb2"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="enlargedImage" destination="35S-5u-ekc" id="csV-2W-sdI"/>
+                        <outlet property="teamTitle" destination="125-d6-Bsx" id="ET8-5w-bAC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rzj-lj-jzA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1863" y="128"/>
+            <point key="canvasLocation" x="1861.5999999999999" y="127.28635682158921"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="orO-zW-DPM">

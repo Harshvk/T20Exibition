@@ -1,19 +1,25 @@
 import  UIKit
-class SuperViewForObject {
+extension UIView {
     
 
-    func getDesiredViewCell(givenObjectName : Any,desiredViewName : String) -> Any{
+    enum superviewType{
+        
+        case UITableViewCell,UICollectionViewCell
+        
+    }
+    
+    static func getDesiredViewCell(givenObjectName : Any,desiredViewName : superviewType) -> Any{
         
       var given = givenObjectName
         switch desiredViewName {
-        case "UITableViewCell":
+        case .UITableViewCell :
             
             while !(given is UITableViewCell){
                 
                 given = (given as AnyObject).superview as Any
                 
             }
-        case "UICollectionViewCell":
+        case .UICollectionViewCell :
             
             while !(given is UICollectionViewCell){
                 
@@ -21,8 +27,6 @@ class SuperViewForObject {
                 
             }
             
-        default:
-            print("Cell Not Found")
         }
 
         return  given

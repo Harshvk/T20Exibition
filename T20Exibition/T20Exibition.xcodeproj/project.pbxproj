@@ -19,6 +19,8 @@
 		0C08F8951E558E7700B2702D /* TeamCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C08F8931E558E7700B2702D /* TeamCell.swift */; };
 		0C08F8961E558E7700B2702D /* TeamCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C08F8941E558E7700B2702D /* TeamCell.xib */; };
 		0C08F89A1E55AC2000B2702D /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C08F8991E55AC2000B2702D /* JSON.swift */; };
+		0C0F53E81E581BE0000E5979 /* ImagePreviewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C0F53E71E581BE0000E5979 /* ImagePreviewVC.swift */; };
+		0C0F53EA1E581D4B000E5979 /* RandomColorGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C0F53E91E581D4B000E5979 /* RandomColorGenerator.swift */; };
 		0CC5570E1E56C80900681B10 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC5570D1E56C80900681B10 /* DataModel.swift */; };
 		0CC557101E57213700681B10 /* SuperViewForObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC5570F1E57213700681B10 /* SuperViewForObject.swift */; };
 /* End PBXBuildFile section */
@@ -38,6 +40,8 @@
 		0C08F8931E558E7700B2702D /* TeamCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamCell.swift; sourceTree = "<group>"; };
 		0C08F8941E558E7700B2702D /* TeamCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TeamCell.xib; sourceTree = "<group>"; };
 		0C08F8991E55AC2000B2702D /* JSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSON.swift; sourceTree = "<group>"; };
+		0C0F53E71E581BE0000E5979 /* ImagePreviewVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePreviewVC.swift; sourceTree = "<group>"; };
+		0C0F53E91E581D4B000E5979 /* RandomColorGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandomColorGenerator.swift; sourceTree = "<group>"; };
 		0CC5570D1E56C80900681B10 /* DataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		0CC5570F1E57213700681B10 /* SuperViewForObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuperViewForObject.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -75,8 +79,10 @@
 				0C08F8771E55844800B2702D /* AppDelegate.swift */,
 				0C08F8991E55AC2000B2702D /* JSON.swift */,
 				0CC5570F1E57213700681B10 /* SuperViewForObject.swift */,
+				0C0F53E91E581D4B000E5979 /* RandomColorGenerator.swift */,
 				0CC5570D1E56C80900681B10 /* DataModel.swift */,
 				0C08F8891E55860100B2702D /* HomePageVC.swift */,
+				0C0F53E71E581BE0000E5979 /* ImagePreviewVC.swift */,
 				0C08F88D1E55895A00B2702D /* SectionHeaderView.xib */,
 				0C08F88B1E55893400B2702D /* SectionHeaderView.swift */,
 				0C08F88F1E558B5800B2702D /* LeagueCell.swift */,
@@ -166,9 +172,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0C0F53E81E581BE0000E5979 /* ImagePreviewVC.swift in Sources */,
 				0CC5570E1E56C80900681B10 /* DataModel.swift in Sources */,
 				0C08F88A1E55860100B2702D /* HomePageVC.swift in Sources */,
 				0C08F88C1E55893400B2702D /* SectionHeaderView.swift in Sources */,
+				0C0F53EA1E581D4B000E5979 /* RandomColorGenerator.swift in Sources */,
 				0C08F8951E558E7700B2702D /* TeamCell.swift in Sources */,
 				0CC557101E57213700681B10 /* SuperViewForObject.swift in Sources */,
 				0C08F8911E558B5800B2702D /* LeagueCell.swift in Sources */,

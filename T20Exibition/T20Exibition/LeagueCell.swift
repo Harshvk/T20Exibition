@@ -14,6 +14,7 @@ class LeagueCell: UITableViewCell {
     
     @IBOutlet weak var leagueTeamCollection: UICollectionView!
     
+    @IBOutlet weak var showAndHideDetailsBtn: UIButton!
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -32,6 +33,5 @@ class LeagueCell: UITableViewCell {
 //        leagueTeamCollection
         
     }
-    
-}
 
+}
