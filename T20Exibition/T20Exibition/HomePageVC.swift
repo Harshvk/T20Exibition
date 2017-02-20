@@ -5,14 +5,14 @@ import SwiftyJSON
 import AlamofireImage
 
 class HomePageVC: UIViewController {
-
+    
     
     //MARK: Properties
     var favourites = [[IndexPath]]()
     var rowsToHide = [IndexPath]()
     var sectionsToHide = [Int]()
     var collectionPicsData = [JSON]()
-
+    
     
     //MARK: IBOutlets
     @IBOutlet weak var countryWiseTable: UITableView!
@@ -25,9 +25,9 @@ class HomePageVC: UIViewController {
         initialSetup()
         
     }
-
+    
     override func didReceiveMemoryWarning() {
-      
+        
         super.didReceiveMemoryWarning()
         
     }
@@ -48,50 +48,53 @@ class HomePageVC: UIViewController {
         
         self.automaticallyAdjustsScrollViewInsets = false
         
-
+        fetchData(withQuery: "cars")
+        
         
     }
     
-    func fetchData(withQuery query: String , page : Int){
+    
+    func fetchData(withQuery query: String){
         
         let URL = "https://pixabay.com/api/"
         
         let parameters = ["key" : "4609013-414f9bf36c6d94eeea32485fa",
                           
-                          "q" : query,
-                          
-                          "page" : page
+                          "q" : query
             
-                        ] as [String : Any]
+        ]
+        print("hiii")
         
         Alamofire.request(URL,
                           method: .get,
                           parameters: parameters,
                           encoding: URLEncoding.default,
-                          headers: nil).responseJSON { (response :DataResponse<Any>) in
-        
+                          headers: nil).responseJSON{(response:DataResponse<Any>) in
+                            
+                            
                             if let value = response.value as? [String:Any] {
+                                
+                                print("hit")
                                 
                                 let json = JSON(value)
                                 
                                 self.collectionPicsData = json["hits"].array!
-                                
-                                
                             } else if let error = response.error {
-                            
+                                
                                 print(error)
                             }
                             
+                            
         }
-
+        
         
     }
-  
+    
 }
 
 //MARK: TableView Delegates and DataSource
 extension HomePageVC : UITableViewDelegate , UITableViewDataSource
-
+    
 {
     //returns number of section in table view
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -101,30 +104,27 @@ extension HomePageVC : UITableViewDelegate , UITableViewDataSource
     
     //returns number of rows in section
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
-    
+        
         if sectionsToHide.contains(section)
         {
-        
+            
             return 0
             
         }else{
-    
+            
             return 5
-//            let data = DataModel(withJSON: JSON.data[section])
-//            return data.value.count
-        }
+            }
         
     }
     
     //returns cell for row
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
-    
+        
         guard let cell = countryWiseTable.dequeueReusableCell(withIdentifier: "LeagueCell", for: indexPath) as? LeagueCell
             else{fatalError("Cell not found")}
         
-        fetchData(withQuery: "dogs", page: indexPath.row)
-
-       
+        
+        
         if rowsToHide.contains(indexPath){
             
             cell.showAndHideDetailsBtn.isSelected = true
@@ -133,12 +133,6 @@ extension HomePageVC : UITableViewDelegate , UITableViewDataSource
         {
             cell.showAndHideDetailsBtn.isSelected = false
         }
-        
-//        let data = DataModel(withJSON: JSON.data[indexPath.section])
-//        
-//        let tabelData = DataModel(withJSON: data.value[indexPath.row])
-//        
-//        cell.configureCell(tabelData)
         
         //Registering nib to CollectionView
         let nib = UINib(nibName: "TeamCell", bundle: nil)
@@ -150,7 +144,7 @@ extension HomePageVC : UITableViewDelegate , UITableViewDataSource
         //Setting up Delegate and DataSource for Collection View
         cell.leagueTeamCollection.dataSource = self
         cell.leagueTeamCollection.delegate = self
-
+        
         return cell
     }
     
@@ -172,7 +166,7 @@ extension HomePageVC : UITableViewDelegate , UITableViewDataSource
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
         guard let header = countryWiseTable.dequeueReusableHeaderFooterView(withIdentifier: "SectionHeaderView") as? SectionHeaderView
-        else{fatalError("Header not found")}
+            else{fatalError("Header not found")}
         header.showAndHideSectionBtn.tag = section
         header.showAndHideSectionBtn.addTarget(self, action: #selector(showAndHideSectionBtnTapped), for: .touchUpInside)
         
@@ -184,11 +178,11 @@ extension HomePageVC : UITableViewDelegate , UITableViewDataSource
         }else{
             
             header.showAndHideSectionBtn.isSelected = false
-
+            
         }
         
-//        let data = DataModel(withJSON: JSON.data[section])
-//        header.titleLable.text = data.name
+        //        let data = DataModel(withJSON: JSON.data[section])
+        //        header.titleLable.text = data.name
         
         return header
     }
@@ -197,10 +191,10 @@ extension HomePageVC : UITableViewDelegate , UITableViewDataSource
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         
         return 33
-    
+        
     }
-   
-
+    
+    
     
     //Actions to be performed when showAndHideDetailsBtn is Tapped
     @objc private func showAndHideDetailsBtnTapped(btn : UIButton){
@@ -221,15 +215,15 @@ extension HomePageVC : UITableViewDelegate , UITableViewDataSource
         }
         else{
             rowsToHide.append(countryWiseTable.indexPath(for: cell)!)
-        
+            
             btn.isSelected = true
         }
-         countryWiseTable.reloadRows(at: [countryWiseTable.indexPath(for: cell)!], with: UITableViewRowAnimation.automatic)
+        countryWiseTable.reloadRows(at: [countryWiseTable.indexPath(for: cell)!], with: UITableViewRowAnimation.automatic)
     }
     
     
     @objc private func showAndHideSectionBtnTapped(btn: UIButton){
-    
+        
         if btn.isSelected{
             
             btn.isSelected = false
@@ -240,7 +234,7 @@ extension HomePageVC : UITableViewDelegate , UITableViewDataSource
             
             btn.isSelected = true
             sectionsToHide.append(btn.tag)
-
+            
         }
         print(sectionsToHide)
         countryWiseTable.reloadSections([btn.tag], with: .automatic)
@@ -251,8 +245,8 @@ extension HomePageVC : UICollectionViewDelegate, UICollectionViewDataSource, UIC
     
     //returns number of items in section
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int{
-
-        return 20
+        
+        return collectionPicsData.count
     }
     
     //returns cells for item
@@ -266,31 +260,31 @@ extension HomePageVC : UICollectionViewDelegate, UICollectionViewDataSource, UIC
         
         cell.teamPic.backgroundColor = UIColor.randomColor
         
-      
-
+        
+        
         let tableCell = collectionView.getTableViewCell as! LeagueCell
         let tableIndexPath = countryWiseTable.indexPath(for: tableCell)
         
-        let modeledData = ImageInfo(withJSON: self.collectionPicsData[(tableIndexPath?.row)!])
+        let modeledData = ImageInfo(withJSON: self.collectionPicsData[indexPath.row])
         cell.configureCell(withData: modeledData)
         if favourites.contains(where:
             
             { (a : [IndexPath]) -> Bool in
-            
+                
                 return a == [tableIndexPath!,indexPath]
-            }
-        ){
-    
+        }
+            ){
+            
             cell.addToFavouriteButtonOutlet.isSelected = true
         }
         else
         {
             cell.addToFavouriteButtonOutlet.isSelected = false
-
+            
         }
-    
+        
         return cell
- 
+        
     }
     
     //returns size for item
@@ -310,14 +304,14 @@ extension HomePageVC : UICollectionViewDelegate, UICollectionViewDataSource, UIC
         
         previewImage.titleText = cell.teamNameLabel.text
         previewImage.imageColor = cell.teamPic.backgroundColor
-     
+        
         UIView.animate(withDuration: 0.75, delay: 0.0, options: .curveEaseInOut, animations:
             {() -> Void in
                 
                 self.navigationController!.pushViewController(previewImage, animated: false)
                 UIView.setAnimationTransition(UIViewAnimationTransition.flipFromRight, for: self.navigationController!.view!, cache: false)
-            },
-            completion: nil)
+        },
+                       completion: nil)
         
     }
     
@@ -326,7 +320,7 @@ extension HomePageVC : UICollectionViewDelegate, UICollectionViewDataSource, UIC
         
         guard let collectionCell = btn.getCollectionViewCell as? TeamCell
             else{ return }
-
+        
         guard let tableCell = btn.getTableViewCell as? LeagueCell
             else{ return }
         
@@ -335,7 +329,7 @@ extension HomePageVC : UICollectionViewDelegate, UICollectionViewDataSource, UIC
         let collectionIndexPath = tableCell.leagueTeamCollection.indexPath(for: collectionCell)
         
         if btn.isSelected{
-        
+            
             btn.isSelected = false
             favourites = favourites.filter({ (indices: [IndexPath]) -> Bool in
                 return indices != [tableIndexPath!,collectionIndexPath!]
@@ -350,6 +344,6 @@ extension HomePageVC : UICollectionViewDelegate, UICollectionViewDataSource, UIC
         
     }
     
-   
+    
     
 }

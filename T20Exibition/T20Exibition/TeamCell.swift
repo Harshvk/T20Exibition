@@ -19,8 +19,8 @@ class TeamCell: UICollectionViewCell {
     
     func configureCell(withData data: ImageInfo)
     {
-        let URL = NSURL(fileURLWithPath: data.webformatURL) as URL
-        teamPic.af_setImage(withURL: URL)
+        let URL = NSURL(string: data.webformatURL)
+        teamPic.af_setImage(withURL: URL as! URL)
         teamNameLabel.text = data.id
         
     }
