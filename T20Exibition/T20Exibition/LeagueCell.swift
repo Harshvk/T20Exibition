@@ -17,9 +17,12 @@ class LeagueCell: UITableViewCell {
     @IBOutlet weak var showAndHideDetailsBtn: UIButton!
     override func awakeFromNib() {
         super.awakeFromNib()
-        
-        
 
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -27,11 +30,5 @@ class LeagueCell: UITableViewCell {
 
     }
     
-    func configureCell(_ data: DataModel)
-    {
-        leagueNameLabel.text = data.name
-//        leagueTeamCollection
-        
-    }
-
+   
 }

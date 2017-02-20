@@ -10,16 +10,21 @@ import UIKit
 
 class ImagePreviewVC: UIViewController {
 
+    //MARK: Properties
     var imageColor : UIColor!
     var titleText : String!
     
+    //MARK: IBOutlets
     @IBOutlet weak var enlargedImage: UIImageView!
     @IBOutlet weak var teamTitle: UILabel!
     
+    //MARK: View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(self.moveView))
+        enlargedImage.addGestureRecognizer(panGesture)
+        enlargedImage.isUserInteractionEnabled = true
     }
 
     override func viewWillLayoutSubviews() {
@@ -33,11 +38,33 @@ class ImagePreviewVC: UIViewController {
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        UIView.animate(withDuration: 0.75, animations: { () -> Void in
-            UIView.setAnimationCurve(UIViewAnimationCurve.easeInOut)
         
-            UIView.setAnimationTransition(UIViewAnimationTransition.flipFromLeft, for: self.navigationController!.view!, cache: false)
-        })
+        UIView.animate(withDuration: 0.75, delay: 0.0, options: .curveEaseInOut, animations:
+            {   () -> Void in
+               
+                UIView.setAnimationTransition(UIViewAnimationTransition.flipFromLeft, for: self.navigationController!.view!, cache: false)
+                
+            },
+            completion: nil)
+
+    }
+    func moveView(pan : UIPanGestureRecognizer){
+        
+        let newPoint = pan.translation(in: self.enlargedImage)
+        pan.location(in: self.enlargedImage)
+        switch pan.state {
+        case .began:
+            print("began")
+        case .changed:
+            self.enlargedImage.transform = CGAffineTransform(translationX: newPoint.x, y: newPoint.y)
+        case .ended:
+            print("ended")
+
+        default:
+            print("default")
+
+        }
+        
     }
 
 

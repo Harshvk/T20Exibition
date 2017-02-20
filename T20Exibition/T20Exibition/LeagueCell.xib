@@ -71,9 +71,9 @@
                 <constraint firstAttribute="bottom" secondItem="Awb-Dc-2dn" secondAttribute="bottom" id="pTJ-43-QwD"/>
             </constraints>
             <connections>
-                <outlet property="leagueNameLabel" destination="pYg-hE-20g" id="of5-eM-JF0"/>
-                <outlet property="leagueTeamCollection" destination="Awb-Dc-2dn" id="yvq-gW-HRn"/>
-                <outlet property="showAndHideDetailsBtn" destination="7u2-MS-x6g" id="yyr-FM-1cF"/>
+                <outlet property="leagueNameLabel" destination="pYg-hE-20g" id="ktr-aJ-nCR"/>
+                <outlet property="leagueTeamCollection" destination="Awb-Dc-2dn" id="AZM-Jn-6t8"/>
+                <outlet property="showAndHideDetailsBtn" destination="7u2-MS-x6g" id="HuI-2I-5Jp"/>
             </connections>
             <point key="canvasLocation" x="25" y="58"/>
         </tableViewCell>

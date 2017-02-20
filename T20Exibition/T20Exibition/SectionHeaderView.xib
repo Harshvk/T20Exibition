@@ -22,16 +22,38 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tUF-Oa-xwV">
+                    <rect key="frame" x="342" y="0.0" width="33" height="33"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="33" id="Opb-yl-7Iu"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                    <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <state key="normal" title="-">
+                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </state>
+                    <state key="selected" title="+">
+                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
             </subviews>
             <accessibility key="accessibilityConfiguration" identifier="SectionHeaderView"/>
             <constraints>
+                <constraint firstItem="tUF-Oa-xwV" firstAttribute="bottom" secondItem="bJZ-qV-gZf" secondAttribute="bottom" id="75D-f4-i6z"/>
                 <constraint firstAttribute="trailing" secondItem="bJZ-qV-gZf" secondAttribute="trailing" id="7XJ-2b-0Kb"/>
+                <constraint firstItem="tUF-Oa-xwV" firstAttribute="top" secondItem="bJZ-qV-gZf" secondAttribute="top" id="NZF-Bw-FDA"/>
                 <constraint firstAttribute="bottom" secondItem="bJZ-qV-gZf" secondAttribute="bottom" id="SGc-LW-X0X"/>
                 <constraint firstItem="bJZ-qV-gZf" firstAttribute="top" secondItem="3kU-ie-aOA" secondAttribute="top" id="kdu-1I-i47"/>
                 <constraint firstItem="bJZ-qV-gZf" firstAttribute="leading" secondItem="3kU-ie-aOA" secondAttribute="leading" id="rCL-2b-RBD"/>
+                <constraint firstItem="tUF-Oa-xwV" firstAttribute="trailing" secondItem="bJZ-qV-gZf" secondAttribute="trailing" id="zBC-RE-DK0"/>
             </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
+                <outlet property="showAndHideSectionBtn" destination="tUF-Oa-xwV" id="PTX-Qn-5Z0"/>
                 <outlet property="titleLable" destination="bJZ-qV-gZf" id="WIO-3M-GWA"/>
             </connections>
             <point key="canvasLocation" x="52.5" y="-36.5"/>

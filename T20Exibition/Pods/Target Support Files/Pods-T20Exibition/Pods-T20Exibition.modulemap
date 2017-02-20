@@ -1,0 +1,6 @@
+framework module Pods_T20Exibition {
+  umbrella header "Pods-T20Exibition-umbrella.h"
+
+  export *
+  module * { export * }
+}

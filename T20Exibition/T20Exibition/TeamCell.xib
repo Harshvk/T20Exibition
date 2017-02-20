@@ -59,9 +59,9 @@
             </constraints>
             <size key="customSize" width="100" height="122"/>
             <connections>
-                <outlet property="addToFavouriteButtonOutlet" destination="E8g-OQ-e5U" id="Z4I-Cd-dra"/>
-                <outlet property="teamNameLabel" destination="pwm-ic-QEF" id="gHk-37-Wqj"/>
-                <outlet property="teamPic" destination="Ckw-ql-mVE" id="X6k-Kb-a0h"/>
+                <outlet property="addToFavouriteButtonOutlet" destination="E8g-OQ-e5U" id="bK4-sK-dD0"/>
+                <outlet property="teamNameLabel" destination="pwm-ic-QEF" id="eJW-bZ-HE0"/>
+                <outlet property="teamPic" destination="Ckw-ql-mVE" id="iNv-dQ-PVO"/>
             </connections>
             <point key="canvasLocation" x="50" y="32"/>
         </collectionViewCell>

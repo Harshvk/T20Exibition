@@ -18,11 +18,10 @@
 		0C08F8921E558B5800B2702D /* LeagueCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C08F8901E558B5800B2702D /* LeagueCell.xib */; };
 		0C08F8951E558E7700B2702D /* TeamCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C08F8931E558E7700B2702D /* TeamCell.swift */; };
 		0C08F8961E558E7700B2702D /* TeamCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C08F8941E558E7700B2702D /* TeamCell.xib */; };
-		0C08F89A1E55AC2000B2702D /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C08F8991E55AC2000B2702D /* JSON.swift */; };
 		0C0F53E81E581BE0000E5979 /* ImagePreviewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C0F53E71E581BE0000E5979 /* ImagePreviewVC.swift */; };
-		0C0F53EA1E581D4B000E5979 /* RandomColorGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C0F53E91E581D4B000E5979 /* RandomColorGenerator.swift */; };
 		0CC5570E1E56C80900681B10 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC5570D1E56C80900681B10 /* DataModel.swift */; };
-		0CC557101E57213700681B10 /* SuperViewForObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC5570F1E57213700681B10 /* SuperViewForObject.swift */; };
+		0CC557101E57213700681B10 /* ReusableFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC5570F1E57213700681B10 /* ReusableFunctions.swift */; };
+		4A02FDB670A025F7148366CE /* Pods_T20Exibition.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E0F3A3C54CFABA19B58E75D /* Pods_T20Exibition.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,11 +38,12 @@
 		0C08F8901E558B5800B2702D /* LeagueCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LeagueCell.xib; sourceTree = "<group>"; };
 		0C08F8931E558E7700B2702D /* TeamCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamCell.swift; sourceTree = "<group>"; };
 		0C08F8941E558E7700B2702D /* TeamCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TeamCell.xib; sourceTree = "<group>"; };
-		0C08F8991E55AC2000B2702D /* JSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSON.swift; sourceTree = "<group>"; };
 		0C0F53E71E581BE0000E5979 /* ImagePreviewVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePreviewVC.swift; sourceTree = "<group>"; };
-		0C0F53E91E581D4B000E5979 /* RandomColorGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandomColorGenerator.swift; sourceTree = "<group>"; };
 		0CC5570D1E56C80900681B10 /* DataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
-		0CC5570F1E57213700681B10 /* SuperViewForObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuperViewForObject.swift; sourceTree = "<group>"; };
+		0CC5570F1E57213700681B10 /* ReusableFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReusableFunctions.swift; sourceTree = "<group>"; };
+		33C0B107EF9C7D1EB10B2E8A /* Pods-T20Exibition.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-T20Exibition.release.xcconfig"; path = "Pods/Target Support Files/Pods-T20Exibition/Pods-T20Exibition.release.xcconfig"; sourceTree = "<group>"; };
+		8049D317632E52336ADB4203 /* Pods-T20Exibition.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-T20Exibition.debug.xcconfig"; path = "Pods/Target Support Files/Pods-T20Exibition/Pods-T20Exibition.debug.xcconfig"; sourceTree = "<group>"; };
+		9E0F3A3C54CFABA19B58E75D /* Pods_T20Exibition.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_T20Exibition.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A02FDB670A025F7148366CE /* Pods_T20Exibition.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,6 +63,8 @@
 			children = (
 				0C08F8761E55844800B2702D /* T20Exibition */,
 				0C08F8751E55844800B2702D /* Products */,
+				636C447EC8838444BBD21C74 /* Pods */,
+				C79F381F57F9C236A2A45190 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -77,9 +80,7 @@
 			isa = PBXGroup;
 			children = (
 				0C08F8771E55844800B2702D /* AppDelegate.swift */,
-				0C08F8991E55AC2000B2702D /* JSON.swift */,
-				0CC5570F1E57213700681B10 /* SuperViewForObject.swift */,
-				0C0F53E91E581D4B000E5979 /* RandomColorGenerator.swift */,
+				0CC5570F1E57213700681B10 /* ReusableFunctions.swift */,
 				0CC5570D1E56C80900681B10 /* DataModel.swift */,
 				0C08F8891E55860100B2702D /* HomePageVC.swift */,
 				0C0F53E71E581BE0000E5979 /* ImagePreviewVC.swift */,
@@ -97,6 +98,23 @@
 			path = T20Exibition;
 			sourceTree = "<group>";
 		};
+		636C447EC8838444BBD21C74 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8049D317632E52336ADB4203 /* Pods-T20Exibition.debug.xcconfig */,
+				33C0B107EF9C7D1EB10B2E8A /* Pods-T20Exibition.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		C79F381F57F9C236A2A45190 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9E0F3A3C54CFABA19B58E75D /* Pods_T20Exibition.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -104,9 +122,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0C08F8861E55844900B2702D /* Build configuration list for PBXNativeTarget "T20Exibition" */;
 			buildPhases = (
+				16DC9294AC3A49B64426F1F0 /* [CP] Check Pods Manifest.lock */,
 				0C08F8701E55844800B2702D /* Sources */,
 				0C08F8711E55844800B2702D /* Frameworks */,
 				0C08F8721E55844800B2702D /* Resources */,
+				4D8CC3763D1CD0F19EE5D0A1 /* [CP] Embed Pods Frameworks */,
+				52670D0DD347C121B757714A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -167,6 +188,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		16DC9294AC3A49B64426F1F0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		4D8CC3763D1CD0F19EE5D0A1 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-T20Exibition/Pods-T20Exibition-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		52670D0DD347C121B757714A /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-T20Exibition/Pods-T20Exibition-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		0C08F8701E55844800B2702D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -176,12 +245,10 @@
 				0CC5570E1E56C80900681B10 /* DataModel.swift in Sources */,
 				0C08F88A1E55860100B2702D /* HomePageVC.swift in Sources */,
 				0C08F88C1E55893400B2702D /* SectionHeaderView.swift in Sources */,
-				0C0F53EA1E581D4B000E5979 /* RandomColorGenerator.swift in Sources */,
 				0C08F8951E558E7700B2702D /* TeamCell.swift in Sources */,
-				0CC557101E57213700681B10 /* SuperViewForObject.swift in Sources */,
+				0CC557101E57213700681B10 /* ReusableFunctions.swift in Sources */,
 				0C08F8911E558B5800B2702D /* LeagueCell.swift in Sources */,
 				0C08F8781E55844800B2702D /* AppDelegate.swift in Sources */,
-				0C08F89A1E55AC2000B2702D /* JSON.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -302,6 +369,7 @@
 		};
 		0C08F8871E55844900B2702D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8049D317632E52336ADB4203 /* Pods-T20Exibition.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = T20Exibition/Info.plist;
@@ -314,6 +382,7 @@
 		};
 		0C08F8881E55844900B2702D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 33C0B107EF9C7D1EB10B2E8A /* Pods-T20Exibition.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = T20Exibition/Info.plist;
