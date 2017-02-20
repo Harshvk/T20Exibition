@@ -11,7 +11,7 @@ class HomePageVC: UIViewController {
     var favourites = [[IndexPath]]()
     var rowsToHide = [IndexPath]()
     var sectionsToHide = [Int]()
-    var dogPicturesData = [ImageInfo]()
+    var collectionPicsData = [JSON]()
 
     
     //MARK: IBOutlets
@@ -48,12 +48,11 @@ class HomePageVC: UIViewController {
         
         self.automaticallyAdjustsScrollViewInsets = false
         
-        
 
         
     }
     
-    func fetchData(withQuery query: String , page : Int) {
+    func fetchData(withQuery query: String , page : Int){
         
         let URL = "https://pixabay.com/api/"
         
@@ -62,27 +61,29 @@ class HomePageVC: UIViewController {
                           "q" : query,
                           
                           "page" : page
-        ] as [String : Any]
+            
+                        ] as [String : Any]
         
         Alamofire.request(URL,
                           method: .get,
                           parameters: parameters,
                           encoding: URLEncoding.default,
                           headers: nil).responseJSON { (response :DataResponse<Any>) in
-                            
+        
                             if let value = response.value as? [String:Any] {
                                 
                                 let json = JSON(value)
                                 
-                                self.dogPicturesData = json["hits"].arrayObject as! [ImageInfo]
+                                self.collectionPicsData = json["hits"].array!
                                 
                                 
                             } else if let error = response.error {
-                                
+                            
                                 print(error)
                             }
                             
         }
+
         
     }
   
@@ -120,6 +121,9 @@ extension HomePageVC : UITableViewDelegate , UITableViewDataSource
     
         guard let cell = countryWiseTable.dequeueReusableCell(withIdentifier: "LeagueCell", for: indexPath) as? LeagueCell
             else{fatalError("Cell not found")}
+        
+        fetchData(withQuery: "dogs", page: indexPath.row)
+
        
         if rowsToHide.contains(indexPath){
             
@@ -248,7 +252,7 @@ extension HomePageVC : UICollectionViewDelegate, UICollectionViewDataSource, UIC
     //returns number of items in section
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int{
 
-        return 15
+        return 20
     }
     
     //returns cells for item
@@ -262,9 +266,13 @@ extension HomePageVC : UICollectionViewDelegate, UICollectionViewDataSource, UIC
         
         cell.teamPic.backgroundColor = UIColor.randomColor
         
+      
+
         let tableCell = collectionView.getTableViewCell as! LeagueCell
         let tableIndexPath = countryWiseTable.indexPath(for: tableCell)
         
+        let modeledData = ImageInfo(withJSON: self.collectionPicsData[(tableIndexPath?.row)!])
+        cell.configureCell(withData: modeledData)
         if favourites.contains(where:
             
             { (a : [IndexPath]) -> Bool in

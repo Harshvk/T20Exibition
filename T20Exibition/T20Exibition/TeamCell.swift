@@ -1,13 +1,7 @@
-//
-//  TeamCell.swift
-//  T20Exibition
-//
-//  Created by appinventiv on 16/02/17.
-//  Copyright © 2017 appinventiv. All rights reserved.
-//
 
 import UIKit
-
+import Alamofire
+import AlamofireImage
 class TeamCell: UICollectionViewCell {
 
     @IBOutlet weak var addToFavouriteButtonOutlet: UIButton!
@@ -21,6 +15,14 @@ class TeamCell: UICollectionViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
 
+    }
+    
+    func configureCell(withData data: ImageInfo)
+    {
+        let URL = NSURL(fileURLWithPath: data.webformatURL) as URL
+        teamPic.af_setImage(withURL: URL)
+        teamNameLabel.text = data.id
+        
     }
 
 }
