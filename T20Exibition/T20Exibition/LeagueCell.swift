@@ -9,7 +9,9 @@
 import UIKit
 
 class LeagueCell: UITableViewCell {
- 
+    
+    var tableIndexPath : IndexPath! = nil
+
     @IBOutlet weak var leagueNameLabel: UILabel!
     
     @IBOutlet weak var leagueTeamCollection: UICollectionView!
@@ -22,7 +24,7 @@ class LeagueCell: UITableViewCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        
+        leagueTeamCollection.reloadData()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

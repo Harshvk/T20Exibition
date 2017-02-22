@@ -5,7 +5,7 @@ import SwiftyJSON
 struct ImageInfo {
     
     let id : String!
-    
+    var isFav : Bool = false
     var comments = 0
     var downloads = 0
     

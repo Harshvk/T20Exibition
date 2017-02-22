@@ -7,11 +7,11 @@
 //
 
 import UIKit
-
+import AlamofireImage
 class ImagePreviewVC: UIViewController {
 
     //MARK: Properties
-    var imageColor : UIColor!
+    var imageURL : String!
     var titleText : String!
     
     //MARK: IBOutlets
@@ -28,7 +28,9 @@ class ImagePreviewVC: UIViewController {
     }
 
     override func viewWillLayoutSubviews() {
-        enlargedImage.backgroundColor = imageColor
+        
+        let url = URL(string: imageURL)
+        enlargedImage.af_setImage(withURL: url!)
         teamTitle.text = titleText
     }
     
@@ -39,13 +41,6 @@ class ImagePreviewVC: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         
-        UIView.animate(withDuration: 0.75, delay: 0.0, options: .curveEaseInOut, animations:
-            {   () -> Void in
-               
-                UIView.setAnimationTransition(UIViewAnimationTransition.flipFromLeft, for: self.navigationController!.view!, cache: false)
-                
-            },
-            completion: nil)
 
     }
     func moveView(pan : UIPanGestureRecognizer){

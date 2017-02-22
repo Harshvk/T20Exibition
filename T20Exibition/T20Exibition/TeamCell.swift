@@ -4,6 +4,7 @@ import Alamofire
 import AlamofireImage
 class TeamCell: UICollectionViewCell {
 
+
     @IBOutlet weak var addToFavouriteButtonOutlet: UIButton!
     @IBOutlet weak var teamNameLabel: UILabel!
     @IBOutlet weak var teamPic: UIImageView!
@@ -14,7 +15,9 @@ class TeamCell: UICollectionViewCell {
 
     override func prepareForReuse() {
         super.prepareForReuse()
-
+        addToFavouriteButtonOutlet.isSelected = false
+        teamNameLabel.text = ""
+        teamPic.image = nil
     }
     
     func configureCell(withData data: ImageInfo)

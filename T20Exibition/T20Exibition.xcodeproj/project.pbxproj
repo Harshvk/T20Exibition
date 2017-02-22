@@ -19,6 +19,9 @@
 		0C08F8951E558E7700B2702D /* TeamCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C08F8931E558E7700B2702D /* TeamCell.swift */; };
 		0C08F8961E558E7700B2702D /* TeamCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C08F8941E558E7700B2702D /* TeamCell.xib */; };
 		0C0F53E81E581BE0000E5979 /* ImagePreviewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C0F53E71E581BE0000E5979 /* ImagePreviewVC.swift */; };
+		0C98AE331E5DC35B00F92BF9 /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C98AE321E5DC35B00F92BF9 /* JSON.swift */; };
+		0CB3EB4D1E5C5B5B00A06B29 /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CB3EB4B1E5C5B5B00A06B29 /* NetworkController.swift */; };
+		0CB3EB4E1E5C5B5B00A06B29 /* WebServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CB3EB4C1E5C5B5B00A06B29 /* WebServices.swift */; };
 		0CC5570E1E56C80900681B10 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC5570D1E56C80900681B10 /* DataModel.swift */; };
 		0CC557101E57213700681B10 /* ReusableFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC5570F1E57213700681B10 /* ReusableFunctions.swift */; };
 		4A02FDB670A025F7148366CE /* Pods_T20Exibition.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E0F3A3C54CFABA19B58E75D /* Pods_T20Exibition.framework */; };
@@ -39,6 +42,9 @@
 		0C08F8931E558E7700B2702D /* TeamCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamCell.swift; sourceTree = "<group>"; };
 		0C08F8941E558E7700B2702D /* TeamCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TeamCell.xib; sourceTree = "<group>"; };
 		0C0F53E71E581BE0000E5979 /* ImagePreviewVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePreviewVC.swift; sourceTree = "<group>"; };
+		0C98AE321E5DC35B00F92BF9 /* JSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSON.swift; sourceTree = "<group>"; };
+		0CB3EB4B1E5C5B5B00A06B29 /* NetworkController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkController.swift; sourceTree = "<group>"; };
+		0CB3EB4C1E5C5B5B00A06B29 /* WebServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebServices.swift; sourceTree = "<group>"; };
 		0CC5570D1E56C80900681B10 /* DataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		0CC5570F1E57213700681B10 /* ReusableFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReusableFunctions.swift; sourceTree = "<group>"; };
 		33C0B107EF9C7D1EB10B2E8A /* Pods-T20Exibition.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-T20Exibition.release.xcconfig"; path = "Pods/Target Support Files/Pods-T20Exibition/Pods-T20Exibition.release.xcconfig"; sourceTree = "<group>"; };
@@ -79,6 +85,9 @@
 		0C08F8761E55844800B2702D /* T20Exibition */ = {
 			isa = PBXGroup;
 			children = (
+				0C98AE321E5DC35B00F92BF9 /* JSON.swift */,
+				0CB3EB4B1E5C5B5B00A06B29 /* NetworkController.swift */,
+				0CB3EB4C1E5C5B5B00A06B29 /* WebServices.swift */,
 				0C08F8771E55844800B2702D /* AppDelegate.swift */,
 				0CC5570F1E57213700681B10 /* ReusableFunctions.swift */,
 				0CC5570D1E56C80900681B10 /* DataModel.swift */,
@@ -242,13 +251,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				0C0F53E81E581BE0000E5979 /* ImagePreviewVC.swift in Sources */,
+				0C98AE331E5DC35B00F92BF9 /* JSON.swift in Sources */,
 				0CC5570E1E56C80900681B10 /* DataModel.swift in Sources */,
 				0C08F88A1E55860100B2702D /* HomePageVC.swift in Sources */,
 				0C08F88C1E55893400B2702D /* SectionHeaderView.swift in Sources */,
 				0C08F8951E558E7700B2702D /* TeamCell.swift in Sources */,
 				0CC557101E57213700681B10 /* ReusableFunctions.swift in Sources */,
+				0CB3EB4E1E5C5B5B00A06B29 /* WebServices.swift in Sources */,
 				0C08F8911E558B5800B2702D /* LeagueCell.swift in Sources */,
 				0C08F8781E55844800B2702D /* AppDelegate.swift in Sources */,
+				0CB3EB4D1E5C5B5B00A06B29 /* NetworkController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -6,14 +6,13 @@ import AlamofireImage
 
 class HomePageVC: UIViewController {
     
+    typealias JsonDict = [[String:Any]]
     
     //MARK: Properties
-    var favourites = [[IndexPath]]()
     var rowsToHide = [IndexPath]()
     var sectionsToHide = [Int]()
-    var collectionPicsData = [JSON]()
-    
-    
+    var collectionPicsData = [[[ImageInfo]]]()
+
     //MARK: IBOutlets
     @IBOutlet weak var countryWiseTable: UITableView!
     
@@ -48,49 +47,39 @@ class HomePageVC: UIViewController {
         
         self.automaticallyAdjustsScrollViewInsets = false
         
-        fetchData(withQuery: "cars")
-        
-        
+        //Hitting Server
+        fetchData()
+
     }
     
-    
-    func fetchData(withQuery query: String){
+
+    //Function to Hit Server
+    private func fetchData() {
         
-        let URL = "https://pixabay.com/api/"
-        
-        let parameters = ["key" : "4609013-414f9bf36c6d94eeea32485fa",
-                          
-                          "q" : query
+        for sec in GivenJSON.data.indices{
+            collectionPicsData.append([])
+            for (index,value) in (GivenJSON.data[sec]["Value"] as! JsonDict).enumerated(){
+                
+                                collectionPicsData[sec].append([])
+                
+                                WebServices().fetchDataFromPixabay(withQuery: value["Sub Category"] as! String,
+                                                                   success: {(input: [ImageInfo]) -> Void in
+                                                                    
+                                                                    self.collectionPicsData[sec][index] = input
+                                                                    print("Hit")
+                                                                    self.countryWiseTable.reloadData()
+
+                                },failure: {(error: Error) -> Void in
             
-        ]
-        print("hiii")
-        
-        Alamofire.request(URL,
-                          method: .get,
-                          parameters: parameters,
-                          encoding: URLEncoding.default,
-                          headers: nil).responseJSON{(response:DataResponse<Any>) in
-                            
-                            
-                            if let value = response.value as? [String:Any] {
-                                
-                                print("hit")
-                                
-                                let json = JSON(value)
-                                
-                                self.collectionPicsData = json["hits"].array!
-                            } else if let error = response.error {
-                                
-                                print(error)
+                                    print(error)
+                                })
+                
                             }
-                            
-                            
-        }
-        
-        
-    }
-    
+                    }
+               }
 }
+    
+
 
 //MARK: TableView Delegates and DataSource
 extension HomePageVC : UITableViewDelegate , UITableViewDataSource
@@ -99,57 +88,38 @@ extension HomePageVC : UITableViewDelegate , UITableViewDataSource
     //returns number of section in table view
     func numberOfSections(in tableView: UITableView) -> Int {
         
-        return 10
+        return collectionPicsData.count
     }
     
     //returns number of rows in section
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         
-        if sectionsToHide.contains(section)
-        {
+        
+        if sectionsToHide.contains(section){
             
             return 0
-            
+        
         }else{
             
-            return 5
-            }
+            return collectionPicsData[section].count
+            
+        }
+        
         
     }
     
     //returns cell for row
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         
-        guard let cell = countryWiseTable.dequeueReusableCell(withIdentifier: "LeagueCell", for: indexPath) as? LeagueCell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "LeagueCell", for: indexPath) as? LeagueCell
             else{fatalError("Cell not found")}
-        
-        
-        
-        if rowsToHide.contains(indexPath){
-            
-            cell.showAndHideDetailsBtn.isSelected = true
-        }
-        else
-        {
-            cell.showAndHideDetailsBtn.isSelected = false
-        }
-        
-        //Registering nib to CollectionView
-        let nib = UINib(nibName: "TeamCell", bundle: nil)
-        cell.leagueTeamCollection.register(nib, forCellWithReuseIdentifier: "TeamCell")
-        
-        //Adding target to showAndHideDetailsBtn
-        cell.showAndHideDetailsBtn.addTarget(self, action: #selector(showAndHideDetailsBtnTapped), for: .touchUpInside)
-        
-        //Setting up Delegate and DataSource for Collection View
-        cell.leagueTeamCollection.dataSource = self
-        cell.leagueTeamCollection.delegate = self
         
         return cell
     }
     
     //returns height for row
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+     
         if rowsToHide.contains(indexPath){
             
             return 21
@@ -165,11 +135,17 @@ extension HomePageVC : UITableViewDelegate , UITableViewDataSource
     //returns Header for section
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
-        guard let header = countryWiseTable.dequeueReusableHeaderFooterView(withIdentifier: "SectionHeaderView") as? SectionHeaderView
+        guard let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: "SectionHeaderView") as? SectionHeaderView
             else{fatalError("Header not found")}
+        
+        //setting button tag to section
         header.showAndHideSectionBtn.tag = section
+        
+        //Adding Target to showAndHideSectionBtn
         header.showAndHideSectionBtn.addTarget(self, action: #selector(showAndHideSectionBtnTapped), for: .touchUpInside)
         
+        //Providing Title to Header
+        header.titleLable.text = GivenJSON.data[section]["Category"] as? String
         if sectionsToHide.contains(section)
         {
             
@@ -181,9 +157,6 @@ extension HomePageVC : UITableViewDelegate , UITableViewDataSource
             
         }
         
-        //        let data = DataModel(withJSON: JSON.data[section])
-        //        header.titleLable.text = data.name
-        
         return header
     }
     
@@ -192,6 +165,40 @@ extension HomePageVC : UITableViewDelegate , UITableViewDataSource
         
         return 33
         
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        
+        guard let tableViewCell = cell as? LeagueCell else{ return }
+        
+        //Registering nib to CollectionView
+        let nib = UINib(nibName: "TeamCell", bundle: nil)
+        tableViewCell.leagueTeamCollection.register(nib, forCellWithReuseIdentifier: "TeamCell")
+        
+        //Setting up datasource and delegate of Collection View
+        tableViewCell.leagueTeamCollection.dataSource = self
+        tableViewCell.leagueTeamCollection.delegate = self
+        
+        //Adding targert to showAndHideDetailsBtn
+        tableViewCell.showAndHideDetailsBtn.addTarget(self, action: #selector(showAndHideDetailsBtnTapped), for: .touchUpInside)
+        
+        //saving indexPath for tableViewCell
+        tableViewCell.tableIndexPath = indexPath
+        
+        let data = GivenJSON.data[indexPath.section]["Value"] as! JsonDict
+        
+        //Displaying label of table cell
+        tableViewCell.leagueNameLabel.text = data[indexPath.row]["Sub Category"] as! String?
+        
+        if rowsToHide.contains(indexPath){
+            
+            tableViewCell.showAndHideDetailsBtn.isSelected = true
+            
+        }else{
+            
+            tableViewCell.showAndHideDetailsBtn.isSelected = false
+
+        }
     }
     
     
@@ -206,7 +213,7 @@ extension HomePageVC : UITableViewDelegate , UITableViewDataSource
             
             rowsToHide = rowsToHide.filter(){ (index: IndexPath) -> Bool in
                 
-                return index != countryWiseTable.indexPath(for: cell)!
+                return index != cell.tableIndexPath
                 
             }
             
@@ -214,14 +221,15 @@ extension HomePageVC : UITableViewDelegate , UITableViewDataSource
             
         }
         else{
-            rowsToHide.append(countryWiseTable.indexPath(for: cell)!)
+            rowsToHide.append(cell.tableIndexPath)
             
             btn.isSelected = true
         }
-        countryWiseTable.reloadRows(at: [countryWiseTable.indexPath(for: cell)!], with: UITableViewRowAnimation.automatic)
+        print(rowsToHide)
+        countryWiseTable.reloadRows(at: [cell.tableIndexPath], with: UITableViewRowAnimation.automatic)
     }
     
-    
+     //Actions to be performed when showAndHideSectionBtn is Tapped
     @objc private func showAndHideSectionBtnTapped(btn: UIButton){
         
         if btn.isSelected{
@@ -245,46 +253,37 @@ extension HomePageVC : UICollectionViewDelegate, UICollectionViewDataSource, UIC
     
     //returns number of items in section
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int{
+      
+        let tableCell = collectionView.getTableViewCell as! LeagueCell
         
-        return collectionPicsData.count
+            return collectionPicsData[tableCell.tableIndexPath.section][tableCell.tableIndexPath.row].count
+       
     }
     
     //returns cells for item
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell{
         
-        
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TeamCell", for: indexPath) as? TeamCell
             else{ fatalError("Cell not found") }
-        
-        cell.addToFavouriteButtonOutlet.addTarget(self, action: #selector(addToFavouriteBtnTapped), for: .touchUpInside)
-        
-        cell.teamPic.backgroundColor = UIColor.randomColor
-        
-        
-        
-        let tableCell = collectionView.getTableViewCell as! LeagueCell
-        let tableIndexPath = countryWiseTable.indexPath(for: tableCell)
-        
-        let modeledData = ImageInfo(withJSON: self.collectionPicsData[indexPath.row])
-        cell.configureCell(withData: modeledData)
-        if favourites.contains(where:
-            
-            { (a : [IndexPath]) -> Bool in
-                
-                return a == [tableIndexPath!,indexPath]
-        }
-            ){
-            
-            cell.addToFavouriteButtonOutlet.isSelected = true
-        }
-        else
-        {
-            cell.addToFavouriteButtonOutlet.isSelected = false
-            
-        }
+
         
         return cell
         
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath){
+        
+        let tableCell = collectionView.getTableViewCell as! LeagueCell
+        
+        guard  let collectionViewCell = cell as? TeamCell else { return }
+        
+        //Adding target to addToFavouriteButtonOutlet
+        collectionViewCell.addToFavouriteButtonOutlet.addTarget(self, action: #selector(addToFavouriteBtnTapped), for: .touchUpInside)
+        
+        //configuring Collection View Cell
+        collectionViewCell.configureCell(withData: collectionPicsData[tableCell.tableIndexPath.section][tableCell.tableIndexPath.row][indexPath.row])
+
+        collectionViewCell.addToFavouriteButtonOutlet.isSelected = collectionPicsData[tableCell.tableIndexPath.section][tableCell.tableIndexPath.row][indexPath.row].isFav
     }
     
     //returns size for item
@@ -299,19 +298,18 @@ extension HomePageVC : UICollectionViewDelegate, UICollectionViewDataSource, UIC
         
         let cell = collectionView.cellForItem(at: indexPath) as! TeamCell
         
+        //Making instance of ImagePreviewVC
         guard let previewImage = self.storyboard?.instantiateViewController(withIdentifier: "ImagePreviewVC") as? ImagePreviewVC
             else{ return }
         
-        previewImage.titleText = cell.teamNameLabel.text
-        previewImage.imageColor = cell.teamPic.backgroundColor
+        let tableCell = collectionView.getTableViewCell as! LeagueCell
         
-        UIView.animate(withDuration: 0.75, delay: 0.0, options: .curveEaseInOut, animations:
-            {() -> Void in
-                
-                self.navigationController!.pushViewController(previewImage, animated: false)
-                UIView.setAnimationTransition(UIViewAnimationTransition.flipFromRight, for: self.navigationController!.view!, cache: false)
-        },
-                       completion: nil)
+        //Transfering data before pushing Navigation Controller
+        previewImage.titleText = cell.teamNameLabel.text
+        previewImage.imageURL = collectionPicsData[tableCell.tableIndexPath.section][tableCell.tableIndexPath.row][indexPath.row].webformatURL
+        
+        //Pushing Navigation Controller
+        self.navigationController!.pushViewController(previewImage, animated: true)
         
     }
     
@@ -324,23 +322,19 @@ extension HomePageVC : UICollectionViewDelegate, UICollectionViewDataSource, UIC
         guard let tableCell = btn.getTableViewCell as? LeagueCell
             else{ return }
         
-        let tableIndexPath = countryWiseTable.indexPath(for: tableCell)
-        
         let collectionIndexPath = tableCell.leagueTeamCollection.indexPath(for: collectionCell)
         
         if btn.isSelected{
             
             btn.isSelected = false
-            favourites = favourites.filter({ (indices: [IndexPath]) -> Bool in
-                return indices != [tableIndexPath!,collectionIndexPath!]
-            })
+            collectionPicsData[tableCell.tableIndexPath.section][tableCell.tableIndexPath.row][(collectionIndexPath?.row)!].isFav = false
             
         }else{
             btn.isSelected = true
-            self.favourites.append([tableIndexPath!,collectionIndexPath!])
+            
+            collectionPicsData[tableCell.tableIndexPath.section][tableCell.tableIndexPath.row][(collectionIndexPath?.row)!].isFav = true
             
         }
-        print(self.favourites)
         
     }
     
