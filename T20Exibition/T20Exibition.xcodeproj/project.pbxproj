@@ -24,6 +24,7 @@
 		0CB3EB4E1E5C5B5B00A06B29 /* WebServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CB3EB4C1E5C5B5B00A06B29 /* WebServices.swift */; };
 		0CC5570E1E56C80900681B10 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC5570D1E56C80900681B10 /* DataModel.swift */; };
 		0CC557101E57213700681B10 /* ReusableFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC5570F1E57213700681B10 /* ReusableFunctions.swift */; };
+		0CD8D3CC1E5EE05100726E01 /* FavouritesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD8D3CB1E5EE05100726E01 /* FavouritesVC.swift */; };
 		4A02FDB670A025F7148366CE /* Pods_T20Exibition.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E0F3A3C54CFABA19B58E75D /* Pods_T20Exibition.framework */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +48,7 @@
 		0CB3EB4C1E5C5B5B00A06B29 /* WebServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebServices.swift; sourceTree = "<group>"; };
 		0CC5570D1E56C80900681B10 /* DataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		0CC5570F1E57213700681B10 /* ReusableFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReusableFunctions.swift; sourceTree = "<group>"; };
+		0CD8D3CB1E5EE05100726E01 /* FavouritesVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavouritesVC.swift; sourceTree = "<group>"; };
 		33C0B107EF9C7D1EB10B2E8A /* Pods-T20Exibition.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-T20Exibition.release.xcconfig"; path = "Pods/Target Support Files/Pods-T20Exibition/Pods-T20Exibition.release.xcconfig"; sourceTree = "<group>"; };
 		8049D317632E52336ADB4203 /* Pods-T20Exibition.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-T20Exibition.debug.xcconfig"; path = "Pods/Target Support Files/Pods-T20Exibition/Pods-T20Exibition.debug.xcconfig"; sourceTree = "<group>"; };
 		9E0F3A3C54CFABA19B58E75D /* Pods_T20Exibition.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_T20Exibition.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -93,6 +95,7 @@
 				0CC5570D1E56C80900681B10 /* DataModel.swift */,
 				0C08F8891E55860100B2702D /* HomePageVC.swift */,
 				0C0F53E71E581BE0000E5979 /* ImagePreviewVC.swift */,
+				0CD8D3CB1E5EE05100726E01 /* FavouritesVC.swift */,
 				0C08F88D1E55895A00B2702D /* SectionHeaderView.xib */,
 				0C08F88B1E55893400B2702D /* SectionHeaderView.swift */,
 				0C08F88F1E558B5800B2702D /* LeagueCell.swift */,
@@ -252,6 +255,7 @@
 			files = (
 				0C0F53E81E581BE0000E5979 /* ImagePreviewVC.swift in Sources */,
 				0C98AE331E5DC35B00F92BF9 /* JSON.swift in Sources */,
+				0CD8D3CC1E5EE05100726E01 /* FavouritesVC.swift in Sources */,
 				0CC5570E1E56C80900681B10 /* DataModel.swift in Sources */,
 				0C08F88A1E55860100B2702D /* HomePageVC.swift in Sources */,
 				0C08F88C1E55893400B2702D /* SectionHeaderView.swift in Sources */,

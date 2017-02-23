@@ -25,6 +25,9 @@ class ImagePreviewVC: UIViewController {
         let panGesture = UIPanGestureRecognizer(target: self, action: #selector(self.moveView))
         enlargedImage.addGestureRecognizer(panGesture)
         enlargedImage.isUserInteractionEnabled = true
+        
+        let pinchGesture = UIPinchGestureRecognizer(target: self, action: #selector(self.zoomView))
+        enlargedImage.addGestureRecognizer(pinchGesture)
     }
 
     override func viewWillLayoutSubviews() {
@@ -46,18 +49,34 @@ class ImagePreviewVC: UIViewController {
     func moveView(pan : UIPanGestureRecognizer){
         
         let newPoint = pan.translation(in: self.enlargedImage)
-        pan.location(in: self.enlargedImage)
         switch pan.state {
         case .began:
-            print("began")
+            print("Pan began")
         case .changed:
             self.enlargedImage.transform = CGAffineTransform(translationX: newPoint.x, y: newPoint.y)
         case .ended:
-            print("ended")
+            print("Pan ended")
 
         default:
             print("default")
 
+        }
+        
+    }
+    
+    func zoomView(pinch : UIPinchGestureRecognizer){
+        
+        let newPoint = pinch.scale
+        switch pinch.state {
+            
+        case .began : print("Pinch Began")
+            
+        case .changed : self.enlargedImage.transform = CGAffineTransform(scaleX: newPoint, y: newPoint)
+            
+        case .ended : print("Pinch Ended")
+            
+        default : print("Something Went Wrong")
+            
         }
         
     }

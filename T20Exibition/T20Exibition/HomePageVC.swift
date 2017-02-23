@@ -31,6 +31,35 @@ class HomePageVC: UIViewController {
         
     }
     
+    @IBAction func favouritesButtonTapped(_ sender: UIButton) {
+        
+        let favouriteView = self.storyboard?.instantiateViewController(withIdentifier: "FavouritesVC") as! FavouritesVC
+        
+        for tableSec in collectionPicsData.indices{
+            
+            for tableRow in collectionPicsData[tableSec].indices{
+                
+                for collectionRow in collectionPicsData[tableSec][tableRow].indices {
+                    
+                    if collectionPicsData[tableSec][tableRow][collectionRow].isFav
+                    {
+                        
+                        favouriteView.favData.append(collectionPicsData[tableSec][tableRow][collectionRow])
+                        
+                    }
+                }
+            } 
+        }
+        
+        
+        
+        
+        
+       
+        
+        self.navigationController?.pushViewController(favouriteView, animated: true)
+        
+    }
     //MARK: Private Functions
     private func initialSetup(){
         
@@ -71,6 +100,7 @@ class HomePageVC: UIViewController {
 
                                 },failure: {(error: Error) -> Void in
             
+                                    
                                     print(error)
                                 })
                 
@@ -265,7 +295,6 @@ extension HomePageVC : UICollectionViewDelegate, UICollectionViewDataSource, UIC
         
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TeamCell", for: indexPath) as? TeamCell
             else{ fatalError("Cell not found") }
-
         
         return cell
         

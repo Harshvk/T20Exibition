@@ -24,7 +24,9 @@ class WebServices {
         NetworkController().GET(URL: URL,
                                 parameters : parameters,
                                 success : { (json : JSON) in
-                                                                    
+                                    
+                                    print(json)
+                                    
                                     let imagesArray = json["hits"].arrayValue
                                     
                                     var imageModels = [ImageInfo]()
